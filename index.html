@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziyad Kafafi — IT Support &amp; Security Operations</title>
+<meta name="description" content="IT Support Specialist and aspiring SOC Analyst in Bel Air, MD. Shipped a live production web app (AFGTracker), runs a home SOC + SIEM lab, and ranks top 4.7% on TryHackMe's SOC path.">
+<meta property="og:title" content="Ziyad Kafafi — IT Support & Security Operations">
+<meta property="og:description" content="Live production app, home SOC + SIEM lab, TryHackMe top 4.7%. Open to IT Support / Help Desk / SOC roles.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c1116'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%234fd1c5' text-anchor='middle'%3EZK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c1116; --surface:#131b24; --surface2:#0f1720; --line:#233040;
+    --ink:#e9eff5; --muted:#8595a6; --dim:#5f6f80;
+    --teal:#4fd1c5; --amber:#f5b563; --live:#41d693;
+    --maxw:960px;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --disp:"Space Grotesk",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(900px 500px at 82% -8%,rgba(79,209,197,.09),transparent 60%),
+      linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+    background-size:auto,44px 44px,44px 44px;background-position:0 0;}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .mono{font-family:var(--mono)}
+  .ey{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+
+  /* header */
+  .top{padding:60px 0 20px}
+  .statusbar{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-bottom:26px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--live);display:inline-block;margin-right:7px;box-shadow:0 0 0 3px rgba(65,214,147,.16)}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,6.4vw,60px);letter-spacing:-.02em;margin:0;line-height:1.02}
+  .role{font-family:var(--disp);font-weight:500;color:var(--teal);font-size:clamp(15px,2.6vw,20px);margin-top:12px}
+  .pos{color:var(--muted);max-width:600px;margin:20px 0 0;font-size:17px}
+  .links{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+  .links a{font-family:var(--mono);font-size:12.5px;color:var(--ink);border:1px solid var(--line);background:var(--surface);
+    padding:9px 13px;border-radius:8px}
+  .links a:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
+
+  section{padding:38px 0;border-top:1px solid var(--line)}
+  .shead{display:flex;align-items:baseline;gap:12px;margin-bottom:22px}
+  .shead .n{font-family:var(--mono);font-size:12px;color:var(--teal)}
+  .shead h2{font-family:var(--disp);font-weight:600;font-size:20px;margin:0;letter-spacing:-.01em}
+
+  /* projects */
+  .card{background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--line);
+    border-radius:14px;padding:24px;margin-bottom:18px;transition:border-color .18s,transform .18s}
+  .card:hover{border-color:#2f4152;transform:translateY(-2px)}
+  .ctag{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
+  .ctag.live{color:var(--live)}
+  .card h3{font-family:var(--disp);font-weight:600;font-size:20px;margin:10px 0 0;letter-spacing:-.01em}
+  .card p{color:var(--muted);margin:11px 0 0;font-size:15.5px}
+  .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .stack span{font-family:var(--mono);font-size:11.5px;color:var(--ink);background:#0c1521;border:1px solid var(--line);padding:5px 9px;border-radius:6px}
+  .shot{width:100%;border-radius:10px;border:1px solid var(--line);margin-top:18px;display:block}
+  .btns{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
+  .btn{font-family:var(--mono);font-size:13px;font-weight:700;padding:10px 16px;border-radius:8px;display:inline-flex;align-items:center;gap:8px}
+  .btn.solid{background:var(--teal);color:#03201d}
+  .btn.solid:hover{filter:brightness(1.08);text-decoration:none}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
+  .fine{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:14px}
+
+  /* skills */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .sk h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--teal);margin:0 0 8px;text-transform:uppercase}
+  .sk p{color:var(--muted);margin:0;font-size:14.5px}
+
+  /* experience timeline */
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--line)}
+  .job{position:relative;margin-bottom:24px}
+  .job::before{content:"";position:absolute;left:-24px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--surface);border:2px solid var(--teal)}
+  .job .h{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .job h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:0}
+  .job .when{font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap}
+  .job p{color:var(--muted);margin:6px 0 0;font-size:14.5px}
+
+  /* certs */
+  .certs{list-style:none;padding:0;margin:0}
+  .certs li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:baseline;font-size:15px}
+  .certs li:last-child{border:0}
+  .certs .k{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.06em;min-width:96px}
+  .certs b{font-weight:600}
+
+  footer{padding:34px 0 72px;border-top:1px solid var(--line);font-family:var(--mono);font-size:13px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}.job .h{flex-direction:column;gap:2px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="statusbar">
+      <span><span class="dot"></span>AVAILABLE FOR HIRE</span>
+      <span>BEL AIR, MD</span>
+      <span>ON-SITE · HYBRID · REMOTE</span>
+    </div>
+    <h1>Ziyad Kafafi</h1>
+    <div class="role">IT Support Specialist · Aspiring SOC Analyst</div>
+    <p class="pos">I keep systems and users running, and I learn by building real things — a live production app, a home SOC lab, and documented investigations — not just coursework.</p>
+    <nav class="links">
+      <a href="mailto:zkjobs03@gmail.com">✉ zkjobs03@gmail.com</a>
+      <a href="tel:4433070840">☎ 443-307-0840</a>
+      <a href="https://linkedin.com/in/ziyad-kafafi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/ZiyadK03" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://tryhackme.com/p/VulnZ" target="_blank" rel="noopener">TryHackMe</a>
+    </nav>
+  </header>
+
+  <section>
+    <div class="shead"><span class="n mono">01</span><h2>Featured Work</h2></div>
+
+    <article class="card">
+      <span class="ctag live">● STATUS: LIVE IN PRODUCTION</span>
+      <h3>AFGTracker — bookkeeping &amp; tax-readiness platform</h3>
+      <p>Designed, built, and shipped a full-stack web app: invoices, receipts, expenses, mileage, OCR receipt capture, reports, and accountant-ready exports. Multi-tenant with database row-level security, authentication, payments, and automated tests. It runs live and serves real users today.</p>
+      <div class="stack"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Postgres / RLS</span><span>Clerk auth</span><span>Stripe</span><span>CI &amp; tests</span></div>
+      <img class="shot" src="afgtracker-hero.jpeg" alt="AFGTracker product interface — bookkeeping workspace">
+      <div class="btns">
+        <a class="btn solid" href="https://afgtracker.app/en/welcome" target="_blank" rel="noopener">▶ Try the live demo</a>
+        <a class="btn ghost" href="https://afgtracker.app" target="_blank" rel="noopener">afgtracker.app</a>
+      </div>
+      <p class="fine">// source private (commercial product) — full architecture &amp; code walkthrough available on request</p>
+    </article>
+
+    <article class="card">
+      <span class="ctag">◇ HANDS-ON · SECURITY OPERATIONS</span>
+      <h3>Home SOC + SIEM Lab</h3>
+      <p>A multi-VM Proxmox environment with network segmentation and Windows / Linux / Active Directory hardening. ELK/Splunk stack with Filebeat &amp; Winlogbeat forwarding, custom dashboards, and MITRE ATT&amp;CK-mapped detection rules for SSH brute-force and suspicious PowerShell — with traffic analysis in Wireshark and service discovery via Nmap, documented as repeatable investigations.</p>
+      <div class="stack"><span>Proxmox</span><span>ELK / Splunk</span><span>Winlogbeat</span><span>Active Directory</span><span>MITRE ATT&amp;CK</span><span>Wireshark</span><span>Nmap</span><span>Sigma</span></div>
+      <p class="fine">// built &amp; operated hands-on — architecture, detection logic, and findings walkthrough available on request</p>
+    </article>
+
+    <article class="card">
+      <span class="ctag">▲ TRAINING · TOP 4.7% GLOBALLY</span>
+      <h3>TryHackMe — SOC Analyst Level 1</h3>
+      <p>Completed 40+ hands-on rooms across SIEM, EDR, digital forensics, incident response, phishing analysis, IOC extraction, severity rating, threat hunting, and network traffic analysis.</p>
+      <div class="btns"><a class="btn ghost" href="https://tryhackme.com/p/VulnZ" target="_blank" rel="noopener">View profile</a></div>
+    </article>
+  </section>
+
+  <section>
+    <div class="shead"><span class="n mono">02</span><h2>Technical Skills</h2></div>
+    <div class="grid2">
+      <div class="sk"><h4>Support &amp; Endpoints</h4><p>Windows 10/11, macOS, Linux · hardware diagnostics · imaging, install &amp; patching · remote support · ticket triage · account &amp; password resets · asset tracking</p></div>
+      <div class="sk"><h4>Systems &amp; Networking</h4><p>Active Directory · Microsoft 365 · Google Workspace · PowerShell · Bash · TCP/IP · DNS · DHCP · VPN · firewalls</p></div>
+      <div class="sk"><h4>Security Operations</h4><p>SIEM (Splunk / ELK) · log correlation · phishing analysis · IOC extraction · MITRE ATT&amp;CK · NIST CSF · endpoint hardening · MFA</p></div>
+      <div class="sk"><h4>Tooling</h4><p>Wireshark · Nmap · Suricata · Microsoft Defender · Proxmox · VMware / VirtualBox · Git · Python</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><span class="n mono">03</span><h2>Experience</h2></div>
+    <div class="tl">
+      <div class="job">
+        <div class="h"><h3>IT Administrator &amp; Digital Operations Manager — Arqam Financial Group</h3><span class="when">2021 — PRESENT</span></div>
+        <p>Sole technology resource for a financial-services firm: support every endpoint, account, mailbox, and cloud tool; administer Microsoft 365 &amp; Google Workspace; maintain web and digital systems; document fixes and coach non-technical staff. Built and deployed AFGTracker (above).</p>
+      </div>
+      <div class="job">
+        <div class="h"><h3>IT Field Technician (Contract) — AMG Tech / Hardy Industries</h3><span class="when">2026 — PRESENT</span></div>
+        <p>On-call field IT support contractor for client sites — hardware, connectivity, and end-user troubleshooting on dispatch.</p>
+      </div>
+      <div class="job">
+        <div class="h"><h3>Delivery Associate — Tokeyi Logistics (Amazon DSP)</h3><span class="when">2025 — PRESENT</span></div>
+        <p>Routing &amp; scanning systems, strict asset tracking, SLA-driven accuracy; field troubleshooting of device and reporting issues.</p>
+      </div>
+      <div class="job">
+        <div class="h"><h3>Security Officer — Abacus Corporation</h3><span class="when">2024 — 2025</span></div>
+        <p>Access control, incident response, and detailed activity documentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><span class="n mono">04</span><h2>Education &amp; Certifications</h2></div>
+    <ul class="certs">
+      <li><span class="k">IN PROGRESS</span><span><b>CompTIA Security+ SY0-701</b> — exam scheduled</span></li>
+      <li><span class="k">IN PROGRESS</span><span><b>A.A.S. Cyber Defense</b> — Harford Community College</span></li>
+      <li><span class="k">COMPLETE</span><span><b>TryHackMe SOC Level 1 Path</b> — top 4.7% globally</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span><span class="dot"></span>OPEN TO OPPORTUNITIES</span>
+    <a href="mailto:zkjobs03@gmail.com">zkjobs03@gmail.com</a>
+    <span>443-307-0840</span>
+    <a href="https://linkedin.com/in/ziyad-kafafi" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+</div>
+</body>
+</html>
