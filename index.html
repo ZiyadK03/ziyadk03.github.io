@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ziyad Kafafi — IT Support &amp; Security Operations</title>
+<title>Ziyad Kafafi · IT Support &amp; Security Operations</title>
 <meta name="description" content="IT Support Specialist and aspiring SOC Analyst in Bel Air, MD. Builds and runs AFGTracker, a live production web app with real payment processing. Ranks top 15% on TryHackMe's SOC path.">
-<meta property="og:title" content="Ziyad Kafafi — IT Support & Security Operations">
+<meta property="og:title" content="Ziyad Kafafi · IT Support & Security Operations">
 <meta property="og:description" content="Live production app with real payments, TryHackMe top 15%. Open to IT Support / Help Desk / SOC roles.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c1116'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%234fd1c5' text-anchor='middle'%3EZK%3C/text%3E%3C/svg%3E">
@@ -100,6 +100,18 @@
   @media(max-width:640px){.grid2{grid-template-columns:1fr}.job .h{flex-direction:column;gap:2px}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<!-- Link preview. This URL goes on the resume and into recruiter inboxes, and
+     without these it pastes as a bare blue link with no card. -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Ziyad Kafafi, IT Support &amp; Security Operations">
+<meta property="og:description" content="IT Support Specialist and aspiring SOC Analyst in Bel Air, MD. Builds and runs AFGTracker, a live production app with real payments.">
+<meta property="og:url" content="https://ziyadk03.github.io/">
+<meta property="og:image" content="https://ziyadk03.github.io/afgtracker-hero.png">
+<meta property="og:image:alt" content="The AFGTracker dashboard">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ziyad Kafafi, IT Support &amp; Security Operations">
+<meta name="twitter:description" content="IT Support Specialist and aspiring SOC Analyst in Bel Air, MD. Builds and runs AFGTracker, a live production app with real payments.">
+<meta name="twitter:image" content="https://ziyadk03.github.io/afgtracker-hero.png">
 </head>
 <body>
 <div class="wrap">
@@ -112,7 +124,7 @@
     </div>
     <h1>Ziyad Kafafi</h1>
     <div class="role">IT Support Specialist · Aspiring SOC Analyst</div>
-    <p class="pos">I keep systems and users running, and I learn by building real things — a live production app, real production security work, and documented investigations — not just coursework.</p>
+    <p class="pos">I keep systems and users running, and I learn by building real things: a live production app, real production security work, and documented investigations, not just coursework.</p>
     <nav class="links">
       <a href="mailto:zkjobs03@gmail.com">✉ zkjobs03@gmail.com</a>
       <a href="tel:4433070840">☎ 443-307-0840</a>
@@ -127,27 +139,27 @@
 
     <article class="card">
       <span class="ctag live">● STATUS: LIVE IN PRODUCTION</span>
-      <h3>AFGTracker — bookkeeping &amp; tax-readiness platform</h3>
-      <p>Designed, built, and shipped a full-stack web app: invoices, receipts, expenses, mileage, OCR receipt capture, reports, and accountant-ready exports. Multi-tenant with database row-level security, authentication, payments, and automated tests. It runs live at afgtracker.app with 330 passing tests and seven locales.</p>
+      <h3>AFGTracker · bookkeeping &amp; tax-readiness platform</h3>
+      <p>Designed, built, and shipped a full-stack web app: invoices, receipts, expenses, mileage, OCR receipt capture, reports, and accountant-ready exports. Multi-tenant with database row-level security, authentication, payments, and automated tests. It runs live at afgtracker.app with 819 passing tests and seven locales.</p>
       <div class="stack"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Postgres / RLS</span><span>Clerk auth</span><span>Stripe</span><span>CI &amp; tests</span></div>
-      <img class="shot" src="afgtracker-hero.png" alt="AFGTracker product interface — bookkeeping workspace">
+      <img class="shot" src="afgtracker-hero.png" alt="AFGTracker product interface, bookkeeping workspace">
       <div class="btns">
         <a class="btn solid" href="https://afgtracker.app/en/welcome" target="_blank" rel="noopener">▶ Try the live demo</a>
         <a class="btn ghost" href="https://afgtracker.app" target="_blank" rel="noopener">afgtracker.app</a>
       </div>
-      <p class="fine">// source private (commercial product) — full architecture &amp; code walkthrough available on request</p>
+      <p class="fine">// source private (commercial product). Full architecture &amp; code walkthrough available on request</p>
     </article>
 
     <article class="card">
       <span class="ctag">◇ APPLIED · SECURITY ENGINEERING</span>
       <h3>Securing a live payments application</h3>
-      <p>Production security work on AFGTracker, all of it running today: a strict Content-Security-Policy, per-route rate limiting, row-level security in Postgres so one tenant cannot read another's books, and paid-feature entitlement enforced at render rather than at input — it fails closed, so a downgraded account loses the feature immediately rather than at next refresh. When the IRS changed a tax rate mid-year, I traced it through 13 call sites, replaced the constant with a dated lookup, and wrote a regression test that I verified by deliberately reintroducing the bug.</p>
+      <p>Production security work on AFGTracker, all of it running today: a strict Content-Security-Policy, per-route rate limiting, row-level security in Postgres so one tenant cannot read another's books, and paid-feature entitlement enforced at render rather than at input, so it fails closed and a downgraded account loses the feature immediately rather than at next refresh. I later found a race in the same path: with two entitlement checks in flight at once, an older answer could land after a newer one and overwrite it, so a customer who had just paid watched their plan appear and then disappear. I rebuilt it to accept only the most recent response and to pair each answer with the account it was fetched for, then pinned both with tests. When the IRS changed a tax rate mid-year, I traced it through 13 call sites, replaced the constant with a dated lookup, and wrote a regression test that I verified by deliberately reintroducing the bug.</p>
       <div class="stack"><span>CSP</span><span>Rate limiting</span><span>Postgres RLS</span><span>Clerk</span><span>Stripe</span><span>Threat modelling</span><span>Regression testing</span></div>
     </article>
 
     <article class="card">
       <span class="ctag">▲ TRAINING · TOP 15%</span>
-      <h3>TryHackMe — SOC Analyst Level 1</h3>
+      <h3>TryHackMe · SOC Analyst Level 1</h3>
       <p>Completed 40+ hands-on rooms across SIEM, EDR, digital forensics, incident response, phishing analysis, IOC extraction, severity rating, threat hunting, and network traffic analysis.</p>
       <div class="btns"><a class="btn ghost" href="https://tryhackme.com/p/VulnZ" target="_blank" rel="noopener">View profile</a></div>
     </article>
@@ -167,15 +179,15 @@
     <div class="shead"><span class="n mono">03</span><h2>Experience</h2></div>
     <div class="tl">
       <div class="job">
-        <div class="h"><h3>IT Administrator &amp; Digital Operations Manager — Arqam Financial Group</h3><span class="when">2021 — PRESENT</span></div>
+        <div class="h"><h3>IT Administrator &amp; Digital Operations Manager · Arqam Financial Group</h3><span class="when">2021 – PRESENT</span></div>
         <p>Sole technology resource for a financial-services firm: support every endpoint, account, mailbox, and cloud tool; administer Google Workspace; maintain web and digital systems; document fixes and coach non-technical staff. Built and deployed AFGTracker (above).</p>
       </div>
       <div class="job">
-        <div class="h"><h3>Delivery Associate — Tokeyi Logistics (Amazon DSP)</h3><span class="when">2025 — PRESENT</span></div>
+        <div class="h"><h3>Delivery Associate · Tokeyi Logistics (Amazon DSP)</h3><span class="when">2025 – PRESENT</span></div>
         <p>Routing &amp; scanning systems, strict asset tracking, SLA-driven accuracy; field troubleshooting of device and reporting issues.</p>
       </div>
       <div class="job">
-        <div class="h"><h3>Security Officer — Abacus Corporation</h3><span class="when">2024 — 2025</span></div>
+        <div class="h"><h3>Security Officer · Abacus Corporation</h3><span class="when">2024 – 2025</span></div>
         <p>Access control, incident response, and detailed activity documentation.</p>
       </div>
     </div>
@@ -184,9 +196,9 @@
   <section>
     <div class="shead"><span class="n mono">04</span><h2>Education &amp; Certifications</h2></div>
     <ul class="certs">
-      <li><span class="k">IN PROGRESS</span><span><b>CompTIA Security+ SY0-701</b> — coursework in progress: CIS 210 Fundamentals of Network Security, Harford Community College, Fall 2026</span></li>
-      <li><span class="k">IN PROGRESS</span><span><b>A.A.S. Information Assurance & Cybersecurity</b> — Harford Community College · currently CIS&nbsp;210 Network Security and CIS&nbsp;211 Windows Server</span></li>
-      <li><span class="k">COMPLETE</span><span><b>TryHackMe SOC Level 1 Path</b> — top 15%</span></li>
+      <li><span class="k">IN PROGRESS</span><span><b>CompTIA Security+ SY0-701</b>, coursework in progress: CIS 210 Fundamentals of Network Security, Harford Community College, Fall 2026</span></li>
+      <li><span class="k">IN PROGRESS</span><span><b>A.A.S. Information Assurance & Cybersecurity</b>, Harford Community College · currently CIS&nbsp;210 Network Security and CIS&nbsp;211 Windows Server</span></li>
+      <li><span class="k">COMPLETE</span><span><b>TryHackMe SOC Level 1 Path</b>, top 15%</span></li>
     </ul>
   </section>
 
