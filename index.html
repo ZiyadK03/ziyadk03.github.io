@@ -8,7 +8,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c1116'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%234fd1c5' text-anchor='middle'%3EZK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<!-- Loaded without blocking the first paint: it held the page for ~2 s on a
+     phone (Lighthouse, 2026-10-06). Text shows in a system font, then swaps. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap"></noscript>
 <style>
   :root{
     --bg:#0c1116; --surface:#131b24; --surface2:#0f1720; --line:#233040;
@@ -60,7 +63,7 @@
   .card p{color:var(--muted);margin:11px 0 0;font-size:15.5px}
   .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
   .stack span{font-family:var(--mono);font-size:11.5px;color:var(--ink);background:#0c1521;border:1px solid var(--line);padding:5px 9px;border-radius:6px}
-  .shot{width:100%;border-radius:10px;border:1px solid var(--line);margin-top:18px;display:block}
+  .shot{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin-top:18px;display:block}
   .btns{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
   .btn{font-family:var(--mono);font-size:13px;font-weight:700;padding:10px 16px;border-radius:8px;display:inline-flex;align-items:center;gap:8px}
   .btn.solid{background:var(--teal);color:#03201d}
@@ -141,7 +144,10 @@
       <h3>AFGTracker · bookkeeping &amp; tax-readiness platform</h3>
       <p>Designed, built, and shipped a full-stack web app: invoices, receipts, expenses, mileage, OCR receipt capture, reports, and accountant-ready exports. Multi-tenant with database row-level security, authentication, payments, and automated tests. It runs live at afgtracker.app with 1,000+ passing tests and seven locales.</p>
       <div class="stack"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Postgres / RLS</span><span>Clerk auth</span><span>Stripe</span><span>CI &amp; tests</span></div>
-      <img class="shot" src="afgtracker-hero.png" alt="AFGTracker product interface, bookkeeping workspace">
+      <picture>
+        <source type="image/webp" srcset="afgtracker-hero-900.webp 900w, afgtracker-hero-1800.webp 1800w" sizes="(max-width: 900px) 100vw, 900px">
+        <img class="shot" src="afgtracker-hero.png" width="1800" height="958" loading="lazy" decoding="async" alt="AFGTracker dashboard showing balance, recent activity and quick actions, with sample data">
+      </picture>
       <div class="btns">
         <a class="btn solid" href="https://afgtracker.app/en/welcome" target="_blank" rel="noopener">▶ Try the live demo</a>
         <a class="btn ghost" href="https://afgtracker.app" target="_blank" rel="noopener">afgtracker.app</a>
@@ -152,7 +158,7 @@
     <article class="card">
       <span class="ctag">◇ APPLIED · SECURITY ENGINEERING</span>
       <h3>Securing a live payments application</h3>
-      <p>Production security work on AFGTracker, all of it running today: a strict Content-Security-Policy, per-route rate limiting, row-level security in Postgres so one tenant cannot read another's books, and paid-feature entitlement enforced at render rather than at input, so it fails closed and a downgraded account loses the feature immediately rather than at next refresh. I later found a race in the same path: with two entitlement checks in flight at once, an older answer could land after a newer one and overwrite it, so a customer who had just paid watched their plan appear and then disappear. I rebuilt it to accept only the most recent response and to pair each answer with the account it was fetched for, then pinned both with tests. When the IRS changed a tax rate mid-year, I traced it through 13 call sites, replaced the constant with a dated lookup, and wrote a regression test that I verified by deliberately reintroducing the bug.</p>
+      <p>Production security work on AFGTracker, all of it running today: a Content-Security-Policy, per-route rate limiting, row-level security in Postgres so one tenant cannot read another's books, and paid-feature entitlement enforced at render rather than at input, so it fails closed and a downgraded account loses the feature immediately rather than at next refresh. I later found a race in the same path: with two entitlement checks in flight at once, an older answer could land after a newer one and overwrite it, so a customer who had just paid watched their plan appear and then disappear. I rebuilt it to accept only the most recent response and to pair each answer with the account it was fetched for, then pinned both with tests. When the IRS changed a tax rate mid-year, I traced it through 13 call sites, replaced the constant with a dated lookup, and wrote a regression test that I verified by deliberately reintroducing the bug.</p>
       <div class="stack"><span>CSP</span><span>Rate limiting</span><span>Postgres RLS</span><span>Clerk</span><span>Stripe</span><span>Threat modelling</span><span>Regression testing</span></div>
     </article>
 
